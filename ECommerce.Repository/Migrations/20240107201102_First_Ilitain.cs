@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ECommerce.Repository.Migrations
 {
     /// <inheritdoc />
-    public partial class Firstilitian : Migration
+    public partial class FirstIlitain : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -258,7 +258,7 @@ namespace ECommerce.Repository.Migrations
                     OrderId = table.Column<int>(type: "int", nullable: false),
                     CustomerId = table.Column<int>(type: "int", nullable: false),
                     EmployeeUserInfoId = table.Column<int>(type: "int", nullable: false),
-                    EmployeeUserInfoID = table.Column<int>(type: "int", nullable: true),
+                    UsersID = table.Column<int>(type: "int", nullable: true),
                     Active = table.Column<bool>(type: "bit", nullable: false),
                     AddedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -268,16 +268,16 @@ namespace ECommerce.Repository.Migrations
                 {
                     table.PrimaryKey("PK_Employees", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Employees_Users_EmployeeUserInfoID",
-                        column: x => x.EmployeeUserInfoID,
-                        principalTable: "Users",
-                        principalColumn: "ID");
-                    table.ForeignKey(
                         name: "FK_Employees_Users_EmployeeUserInfoId",
                         column: x => x.EmployeeUserInfoId,
                         principalTable: "Users",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Employees_Users_UsersID",
+                        column: x => x.UsersID,
+                        principalTable: "Users",
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -471,9 +471,9 @@ namespace ECommerce.Repository.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Employees_EmployeeUserInfoID",
+                name: "IX_Employees_UsersID",
                 table: "Employees",
-                column: "EmployeeUserInfoID");
+                column: "UsersID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Menus_AccessAreaId",

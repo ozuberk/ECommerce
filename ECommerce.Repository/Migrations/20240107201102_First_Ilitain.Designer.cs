@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ECommerce.Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240107194428_edit_")]
-    partial class edit
+    [Migration("20240107201102_First_Ilitain")]
+    partial class FirstIlitain
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -374,9 +374,6 @@ namespace ECommerce.Repository.Migrations
                     b.Property<decimal>("EmployeeSalary")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("EmployeeUserInfoID")
-                        .HasColumnType("int");
-
                     b.Property<int>("EmployeeUserInfoId")
                         .HasColumnType("int");
 
@@ -402,12 +399,15 @@ namespace ECommerce.Repository.Migrations
                     b.Property<int?>("UserId")
                         .HasColumnType("int");
 
-                    b.HasKey("ID");
+                    b.Property<int?>("UsersID")
+                        .HasColumnType("int");
 
-                    b.HasIndex("EmployeeUserInfoID");
+                    b.HasKey("ID");
 
                     b.HasIndex("EmployeeUserInfoId")
                         .IsUnique();
+
+                    b.HasIndex("UsersID");
 
                     b.ToTable("Employees");
                 });
@@ -743,14 +743,14 @@ namespace ECommerce.Repository.Migrations
             modelBuilder.Entity("ECommerce.Core.ECommerceDatabase.Employees", b =>
                 {
                     b.HasOne("ECommerce.Core.ECommerceDatabase.Users", "EmployeeUserInfo")
-                        .WithMany()
-                        .HasForeignKey("EmployeeUserInfoID");
-
-                    b.HasOne("ECommerce.Core.ECommerceDatabase.Users", "Users")
                         .WithOne("Employees")
                         .HasForeignKey("ECommerce.Core.ECommerceDatabase.Employees", "EmployeeUserInfoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("ECommerce.Core.ECommerceDatabase.Users", "Users")
+                        .WithMany()
+                        .HasForeignKey("UsersID");
 
                     b.Navigation("EmployeeUserInfo");
 
