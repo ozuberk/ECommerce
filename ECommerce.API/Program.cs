@@ -1,3 +1,7 @@
+using ECommerce.Repository;
+using Microsoft.EntityFrameworkCore;
+using System.Reflection;
+
 namespace ECommerce.API
 {
     public class Program
@@ -13,9 +17,13 @@ namespace ECommerce.API
 
             #region DB inilitian
 
-            //builder.Services.AddDbContext<AppDbContext>
-
-
+            builder.Services.AddDbContext<AppDbContext>(x =>
+            {
+                x.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection"), option =>
+                {
+                    option.MigrationsAssembly(Assembly.GetAssembly(typeof(AppDbContext)).GetName().Name);
+                });
+            });
 
             #endregion
 
