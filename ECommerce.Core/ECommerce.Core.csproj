@@ -3,14 +3,13 @@
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
     <Folder Include="IRepositories\" />
     <Folder Include="IService\" />
     <Folder Include="IUnitOfWork\" />
-    <Folder Include="ECommerceDatabase\" />
   </ItemGroup>
 
 </Project>

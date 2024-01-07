@@ -10,6 +10,16 @@ namespace ECommerce.API
 
             builder.Services.AddControllers();
 
+
+            #region DB inilitian
+
+            //builder.Services.AddDbContext<AppDbContext>
+
+
+
+            #endregion
+
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
