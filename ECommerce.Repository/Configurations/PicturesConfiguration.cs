@@ -21,7 +21,7 @@ namespace ECommerce.Repository.Configurations
             builder.Property(p => p.PictureDescription).IsRequired(true);
             builder.Property(p => p.PictureOrder).IsRequired(false).HasColumnType("tinyint");
 
-            builder.HasOne(p => p.Products).WithMany(pi => pi.Pictures).HasForeignKey(p => p.ProductId)
+            builder.HasOne(p => p.Products).WithMany(pi => pi.Pictures).HasForeignKey(p => p.ProductId);
         }
     }
 }
