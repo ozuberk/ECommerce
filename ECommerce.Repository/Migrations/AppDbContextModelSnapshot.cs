@@ -30,9 +30,6 @@ namespace ECommerce.Repository.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<int>("AccessAuthorityId")
-                        .HasColumnType("int");
-
                     b.Property<bool>("Active")
                         .HasColumnType("bit");
 
@@ -65,10 +62,10 @@ namespace ECommerce.Repository.Migrations
 
             modelBuilder.Entity("ECommerce.Core.ECommerceDatabase.AccessToAuthority", b =>
                 {
-                    b.Property<int>("AuthorityId")
+                    b.Property<int>("AccessAreaId")
                         .HasColumnType("int");
 
-                    b.Property<int>("AccessAreaId")
+                    b.Property<int>("AuthorityId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("AddedDate")
@@ -77,9 +74,9 @@ namespace ECommerce.Repository.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("AuthorityId");
+                    b.HasKey("AccessAreaId", "AuthorityId");
 
-                    b.HasIndex("AccessAreaId");
+                    b.HasIndex("AuthorityId");
 
                     b.ToTable("AccessToAuthority");
                 });
@@ -107,6 +104,9 @@ namespace ECommerce.Repository.Migrations
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<int>("CityCode")
+                        .HasColumnType("int");
 
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
@@ -280,8 +280,10 @@ namespace ECommerce.Repository.Migrations
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("Gender")
-                        .HasColumnType("bit");
+                    b.Property<string>("Gender")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
@@ -355,9 +357,6 @@ namespace ECommerce.Repository.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CustomerId")
-                        .HasColumnType("int");
-
                     b.Property<string>("EmployeeLastName")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -374,8 +373,8 @@ namespace ECommerce.Repository.Migrations
                     b.Property<int>("EmployeeUserInfoId")
                         .HasColumnType("int");
 
-                    b.Property<bool>("Gender")
-                        .HasColumnType("bit");
+                    b.Property<string>("Gender")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LivesInACity")
                         .IsRequired()
@@ -383,9 +382,6 @@ namespace ECommerce.Repository.Migrations
 
                     b.Property<bool>("MaritalStatus")
                         .HasColumnType("bit");
-
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("SalaryPayDate")
                         .HasColumnType("datetime2");

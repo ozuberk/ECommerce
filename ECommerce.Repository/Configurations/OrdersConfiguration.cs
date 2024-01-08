@@ -17,7 +17,7 @@ namespace ECommerce.Repository.Configurations
             builder.Property(o => o.ID).UseIdentityColumn();
             builder.Property(o => o.AddedDate).IsRequired();
             builder.Property(o => o.TotalProductQuantity).IsRequired();
-            builder.Property(o => o.TotalPrice).IsRequired();
+            builder.Property(o => o.TotalPrice).IsRequired().HasColumnType("decimal(18,2)");
             builder.Property(o => o.CustomerId).IsRequired();
 
             builder.HasMany(o => o.OrderDetails).WithOne(od => od.Orders).HasForeignKey(od => od.OrderId);

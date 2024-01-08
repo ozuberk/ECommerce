@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ECommerce.Repository.Migrations
 {
     /// <inheritdoc />
-    public partial class FirstIlitain : Migration
+    public partial class Firstinitial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -20,7 +20,6 @@ namespace ECommerce.Repository.Migrations
                     ControllerName = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     ViewName = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    AccessAuthorityId = table.Column<int>(type: "int", nullable: false),
                     Active = table.Column<bool>(type: "bit", nullable: false),
                     AddedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -115,14 +114,14 @@ namespace ECommerce.Repository.Migrations
                 name: "AccessToAuthority",
                 columns: table => new
                 {
-                    AuthorityId = table.Column<int>(type: "int", nullable: false),
                     AccessAreaId = table.Column<int>(type: "int", nullable: false),
+                    AuthorityId = table.Column<int>(type: "int", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AddedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AccessToAuthority", x => x.AuthorityId);
+                    table.PrimaryKey("PK_AccessToAuthority", x => new { x.AccessAreaId, x.AuthorityId });
                     table.ForeignKey(
                         name: "FK_AccessToAuthority_AccessAreas_AccessAreaId",
                         column: x => x.AccessAreaId,
@@ -221,7 +220,7 @@ namespace ECommerce.Repository.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CustomerName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     CustomerLastName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Gender = table.Column<bool>(type: "bit", nullable: false),
+                    Gender = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     PhoneNumber = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     Profession = table.Column<string>(type: "nvarchar(max)", nullable: false, defaultValue: "50"),
                     DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -248,15 +247,13 @@ namespace ECommerce.Repository.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     EmployeeName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     EmployeeLastName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Gender = table.Column<bool>(type: "bit", nullable: false),
+                    Gender = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     EmployeeSalary = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     SalaryPayDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     MaritalStatus = table.Column<bool>(type: "bit", nullable: false),
                     CompanyName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     AboutTheEmployee = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     LivesInACity = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    OrderId = table.Column<int>(type: "int", nullable: false),
-                    CustomerId = table.Column<int>(type: "int", nullable: false),
                     EmployeeUserInfoId = table.Column<int>(type: "int", nullable: false),
                     UsersID = table.Column<int>(type: "int", nullable: true),
                     Active = table.Column<bool>(type: "bit", nullable: false),
@@ -346,6 +343,7 @@ namespace ECommerce.Repository.Migrations
                     Address = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     PostCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DistrictCode = table.Column<int>(type: "int", nullable: false),
+                    CityCode = table.Column<int>(type: "int", nullable: false),
                     CustomerId = table.Column<int>(type: "int", nullable: false),
                     Active = table.Column<bool>(type: "bit", nullable: false),
                     AddedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -428,9 +426,9 @@ namespace ECommerce.Repository.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_AccessToAuthority_AccessAreaId",
+                name: "IX_AccessToAuthority_AuthorityId",
                 table: "AccessToAuthority",
-                column: "AccessAreaId");
+                column: "AuthorityId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Addresses_CustomerId",

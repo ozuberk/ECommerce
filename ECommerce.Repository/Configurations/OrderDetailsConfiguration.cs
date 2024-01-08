@@ -18,7 +18,7 @@ namespace ECommerce.Repository.Configurations
             builder.Property(o => o.OrderId).IsRequired();
             builder.Property(o => o.ProductId).IsRequired();
             builder.Property(o => o.ProductQuantity).IsRequired();
-            builder.Property(o => o.UnitPrice).IsRequired();
+            builder.Property(o => o.UnitPrice).IsRequired().HasColumnType("decimal(18,2)");
         }
     }
 }
