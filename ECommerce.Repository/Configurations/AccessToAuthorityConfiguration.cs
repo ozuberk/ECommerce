@@ -13,8 +13,12 @@ namespace ECommerce.Repository.Configurations
     {
         public void Configure(EntityTypeBuilder<AccessToAuthority> builder)
         {
-            builder.HasKey(a => a.AccessAreaId);
-            builder.HasKey(a => a.AuthorityId);
+            builder.HasKey(a => new
+            {
+                a.AccessAreaId,
+                a.AuthorityId
+            });
+
             builder.Property(a => a.Description).IsRequired(false);
             builder.Property(a => a.AddedDate).IsRequired();
 

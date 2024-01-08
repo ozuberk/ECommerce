@@ -17,7 +17,7 @@ namespace ECommerce.Repository.Configurations
             builder.Property(c => c.ID).UseIdentityColumn();
             builder.Property(c => c.CustomerName).IsRequired().HasMaxLength(100);
             builder.Property(c => c.CustomerLastName).IsRequired().HasMaxLength(100);
-            builder.Property(c => c.Gender).IsRequired();
+            builder.Property(c => c.Gender).IsRequired().HasMaxLength(10);
             builder.Property(c => c.PhoneNumber).IsRequired().HasMaxLength(20);
             builder.Property(c => c.Profession).IsRequired().HasDefaultValue(50);
             builder.Property(c => c.DateOfBirth).IsRequired();

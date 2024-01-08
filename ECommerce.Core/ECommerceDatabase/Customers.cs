@@ -10,7 +10,7 @@ namespace ECommerce.Core.ECommerceDatabase
     {
         public string CustomerName { get; set; }
         public string CustomerLastName { get; set; }
-        public bool Gender { get; set; }
+        public string Gender { get; set; }
         public string PhoneNumber { get; set; }
         public string Profession { get; set; }
         public DateTime DateOfBirth { get; set; }

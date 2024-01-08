@@ -11,7 +11,6 @@ namespace ECommerce.Core.ECommerceDatabase
         public string ControllerName { get; set; }
         public string ViewName { get; set; }
         public string Description { get; set; }
-        public int AccessAuthorityId { get; set; }
         public ICollection<AccessToAuthority> AccessToAuthority { get; set; }
         public Menus Menus { get; set; }
     }

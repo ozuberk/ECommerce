@@ -14,7 +14,7 @@ namespace ECommerce.Repository.Configurations
         public void Configure(EntityTypeBuilder<Orders> builder)
         {
             builder.HasKey(o => o.ID);
-            builder.Property(o => o.ID).IsRequired();
+            builder.Property(o => o.ID).UseIdentityColumn();
             builder.Property(o => o.AddedDate).IsRequired();
             builder.Property(o => o.TotalProductQuantity).IsRequired();
             builder.Property(o => o.TotalPrice).IsRequired();

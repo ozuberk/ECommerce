@@ -12,10 +12,9 @@ namespace ECommerce.Core.ECommerceDatabase
         public string Address { get; set; }
         public string PostCode { get; set; }
         public int DistrictCode { get; set; }
-        //public int CityCode { get; set; }
+        public int CityCode { get; set; }
         public int CustomerId { get; set; }
         public Districts Districts { get; set; }
-        //public Cities Cities { get; set; }
         public Customers Customers { get; set; }
     }
 }
