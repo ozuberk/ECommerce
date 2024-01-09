@@ -7,16 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\.sass-cache\23fb10bb6531a16595cc9a8cbcaeb8f40f41ec84\style.scssc" />
-    <None Include="wwwroot\.sass-cache\23fb10bb6531a16595cc9a8cbcaeb8f40f41ec84\_mixin.scssc" />
-    <None Include="wwwroot\.sass-cache\23fb10bb6531a16595cc9a8cbcaeb8f40f41ec84\_responsive.scssc" />
-    <None Include="wwwroot\.sass-cache\23fb10bb6531a16595cc9a8cbcaeb8f40f41ec84\_theme_color.scssc" />
-    <None Include="wwwroot\.sass-cache\23fb10bb6531a16595cc9a8cbcaeb8f40f41ec84\_variables.scssc" />
-    <None Include="wwwroot\.sass-cache\997c61c8c2a2a831333fab68bc2254612bdf8817\style.scssc" />
-    <None Include="wwwroot\.sass-cache\997c61c8c2a2a831333fab68bc2254612bdf8817\_mixin.scssc" />
-    <None Include="wwwroot\.sass-cache\997c61c8c2a2a831333fab68bc2254612bdf8817\_responsive.scssc" />
-    <None Include="wwwroot\.sass-cache\997c61c8c2a2a831333fab68bc2254612bdf8817\_theme_color.scssc" />
-    <None Include="wwwroot\.sass-cache\997c61c8c2a2a831333fab68bc2254612bdf8817\_variables.scssc" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.11" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ECommerce.Service\ECommerce.Service.csproj" />
   </ItemGroup>
 
 </Project>
