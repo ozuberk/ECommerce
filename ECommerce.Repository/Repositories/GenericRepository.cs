@@ -38,7 +38,7 @@ namespace ECommerce.Repository.Repositories
             return _dbSet.AsNoTracking().AsQueryable();
         }
 
-        public IQueryable<TEntity> GetAllQueryable(Expression<Func<TEntity, bool>> expression)
+        public IQueryable<TEntity> GetAllQuery(Expression<Func<TEntity, bool>> expression)
         {
             return _dbSet.Where(expression);
         }

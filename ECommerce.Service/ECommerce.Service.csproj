@@ -10,8 +10,4 @@
     <ProjectReference Include="..\ECommerce.Repository\ECommerce.Repository.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Manager\" />
-  </ItemGroup>
-
 </Project>
