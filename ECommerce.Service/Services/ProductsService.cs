@@ -20,7 +20,8 @@ namespace ECommerce.Service.Services
         {
             throw new NotImplementedException();
         }
-        public Task<Products> GetProductWithCategory()
+
+        public Task<Products> GetProductWithCategory(int productId)
         {
             throw new NotImplementedException();
         }
