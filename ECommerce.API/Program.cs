@@ -1,4 +1,10 @@
+using ECommerce.Core.IRepositories;
+using ECommerce.Core.IService;
+using ECommerce.Core.IUnitOfWork;
 using ECommerce.Repository;
+using ECommerce.Repository.Repositories;
+using ECommerce.Repository.UnitOfWork;
+using ECommerce.Service.Services;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -13,6 +19,13 @@ namespace ECommerce.API
             // Add services to the container.
 
             builder.Services.AddControllers();
+
+
+            builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
+            builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            builder.Services.AddSwaggerDocument();
 
 
             #region DB inilitian
@@ -31,6 +44,11 @@ namespace ECommerce.API
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
+
+            app.UseOpenApi();
+            app.UseSwaggerUi();
+
+
 
             app.UseAuthorization();
 
