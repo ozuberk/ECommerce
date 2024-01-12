@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ECommerce.Core.DTO;
 using ECommerce.Core.ECommerceDatabase;
 using System;
 using System.Collections.Generic;

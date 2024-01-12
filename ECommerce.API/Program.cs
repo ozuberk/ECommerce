@@ -4,6 +4,7 @@ using ECommerce.Core.IUnitOfWork;
 using ECommerce.Repository;
 using ECommerce.Repository.Repositories;
 using ECommerce.Repository.UnitOfWork;
+using ECommerce.Service.Mapping;
 using ECommerce.Service.Services;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
@@ -27,6 +28,7 @@ namespace ECommerce.API
 
             builder.Services.AddSwaggerDocument();
 
+            builder.Services.AddAutoMapper(typeof(MapProfile));
 
 
 
