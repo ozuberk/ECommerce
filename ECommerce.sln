@@ -13,11 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECommerce.API", "ECommerce.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECommerce.Service", "ECommerce.Service\ECommerce.Service.csproj", "{A3AA1733-89A7-42EB-BB94-2E1950C07319}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECommerce.UnitTest", "ECommerce.UnitTest\ECommerce.UnitTest.csproj", "{751300DC-1A13-4496-AAD3-8A2AB712371E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerce.BringProductService", "ECommerce.BringProductService\ECommerce.BringProductService.csproj", "{AA0F8121-F38F-49BA-B32A-38D395C75F6E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerce.Web", "ECommerce.Web\ECommerce.Web.csproj", "{8C593249-B556-44FF-ABA4-35F708350590}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECommerce.Web", "ECommerce.Web\ECommerce.Web.csproj", "{8C593249-B556-44FF-ABA4-35F708350590}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,14 +37,6 @@ Global
 		{A3AA1733-89A7-42EB-BB94-2E1950C07319}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3AA1733-89A7-42EB-BB94-2E1950C07319}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3AA1733-89A7-42EB-BB94-2E1950C07319}.Release|Any CPU.Build.0 = Release|Any CPU
-		{751300DC-1A13-4496-AAD3-8A2AB712371E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{751300DC-1A13-4496-AAD3-8A2AB712371E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{751300DC-1A13-4496-AAD3-8A2AB712371E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{751300DC-1A13-4496-AAD3-8A2AB712371E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AA0F8121-F38F-49BA-B32A-38D395C75F6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AA0F8121-F38F-49BA-B32A-38D395C75F6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AA0F8121-F38F-49BA-B32A-38D395C75F6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AA0F8121-F38F-49BA-B32A-38D395C75F6E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8C593249-B556-44FF-ABA4-35F708350590}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8C593249-B556-44FF-ABA4-35F708350590}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C593249-B556-44FF-ABA4-35F708350590}.Release|Any CPU.ActiveCfg = Release|Any CPU
