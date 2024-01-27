@@ -12,7 +12,7 @@ namespace ECommerce.Core.IRepositories
         Task<List<Addresses>> AddressesListAsync();
         Task<List<Addresses>> GetAddressesWithDistrictsAsync(int districtCode);
         Task<List<Addresses>> GetAddressesWithDistrictsAsync();
-        Task<Addresses> GetAddressesWithCustomersAsync();
+        Task<List<Addresses>> GetAddressesWithCustomersAsync();
         Task<Addresses> GetAddressesWithCustomersAsync(int customerId);
         Task<Addresses> AddressesRemoveAsync(int id);
     }

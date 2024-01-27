@@ -9,18 +9,18 @@ namespace ECommerce.Core.IRepositories
 {
     public interface IPicturesRepository : IGenericRepository<Pictures>
     {
-        Task<List<Pictures>> GetFotografWithUrunAsync();
+        Task<List<Pictures>> GetPicturesWithProductAsync();
 
-        Task<Pictures> GetFotografWithUrunAsync(int fotografId);
+        Task<Pictures> GetPicturesWithProductAsync(int fotografId);
 
-        Task<string> FotografEkleAsync(string fotografYolu, string fotografAciklamasi, byte fotografSirasi, int urunId, bool aktifMi, DateTime eklemeTarihi, DateTime guncellemeTarihi);
+        Task<string> PicturesAddAsync(string fotografYolu, string fotografAciklamasi, byte fotografSirasi, int urunId, bool aktifMi, DateTime eklemeTarihi, DateTime guncellemeTarihi);
 
-        Task<string> FotografGuncelleAsync(int fotografId, string fotografYolu, string fotografAciklamasi, byte fotografSirasi, int urunId, bool aktifMi, DateTime eklemeTarihi, DateTime guncellemeTarihi);
+        Task<string> PicturesUpdateAsync(int fotografId, string fotografYolu, string fotografAciklamasi, byte fotografSirasi, int urunId, bool aktifMi, DateTime eklemeTarihi, DateTime guncellemeTarihi);
 
-        Task<string> FotografSilAsync(int fotografId);
+        Task<string> PicturesRemoveAsync(int fotografId);
 
-        Task<List<Pictures>> FotografListesiAsync();
+        Task<List<Pictures>> PicturesListAsync();
 
-        Task<List<Pictures>> FotografListesiAsync(bool aktifMi);
+        Task<List<Pictures>> PicturesListAsync(bool aktifMi);
     }
 }

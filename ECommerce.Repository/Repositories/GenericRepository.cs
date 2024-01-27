@@ -33,6 +33,11 @@ namespace ECommerce.Repository.Repositories
             return await _dbSet.AnyAsync(expression);
         }
 
+        public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
+        {
+            return _dbSet.Where(predicate).ToList();
+        }
+
         public IQueryable<TEntity> GetAll()
         {
             return _dbSet.AsNoTracking().AsQueryable();
@@ -41,6 +46,11 @@ namespace ECommerce.Repository.Repositories
         public IQueryable<TEntity> GetAllQuery(Expression<Func<TEntity, bool>> expression)
         {
             return _dbSet.Where(expression);
+        }
+
+        public async Task<IEnumerable<TEntity>> GetAllQueryAsync(Expression<Func<TEntity, bool>> expression)
+        {
+            return await _dbSet.Where(expression).ToListAsync();
         }
 
         public async Task<TEntity> GetByIdAsync(int id)
@@ -61,6 +71,19 @@ namespace ECommerce.Repository.Repositories
         public void Update(TEntity entity)
         {
             _dbSet.Update(entity);
+        }
+        public async Task<TEntity> GetFirst(Expression<Func<TEntity, bool>> whereCondition)
+        {
+            try
+            {
+                IQueryable<TEntity> dbSet = _appDbContext.Set<TEntity>();
+                return await dbSet.FirstOrDefaultAsync(whereCondition);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Bir Hata Olustu: {e.Message}");
+                throw;
+            }
         }
     }
 }

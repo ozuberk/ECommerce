@@ -9,9 +9,9 @@ namespace ECommerce.Core.IRepositories
 {
     public interface ICommentsRepository : IGenericRepository<Comments>
     {
-        Task<List<Comments>> GetYorumlarWithUrunlerAsync();
-        Task<Comments> GetYorumlarWithUrunlerAsync(int urunId);
-        Task<List<Comments>> GetYorumlarWithKullanicilarAsync();
-        Task<Comments> GetYorumlarWithKullanicilarAsync(int kullaniciId);
+        Task<List<Comments>> GetCommentsWithProductsAsync();
+        Task<Comments> GetCommentsWithProductsAsync(int urunId);
+        Task<List<Comments>> GetCommentsWithUsersAsync();
+        Task<Comments> GetCommentsWithUsersAsync(int kullaniciId);
     }
 }

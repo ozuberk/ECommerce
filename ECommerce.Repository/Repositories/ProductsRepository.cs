@@ -20,9 +20,9 @@ namespace ECommerce.Repository.Repositories
             return _appDbContext.Products.Include(p => p.Categories).ToListAsync();
         }
 
-        public Task<Products> GetProductWithCategoryAsync(int productId)
+        public async Task<Products> GetProductWithCategoryAsync(int productId)
         {
-            throw new NotImplementedException();
+            return await _appDbContext.Products.Where(k => k.ID == productId).Include(k => k.Categories).FirstOrDefaultAsync();
         }
     }
 }
