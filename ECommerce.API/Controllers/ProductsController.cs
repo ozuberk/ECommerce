@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerce.API.Controllers
 {
-    public class ProductsController : Controller
+    public class ProductsController : BaseController
     {
         private readonly IService<Products> _service;
         private readonly IMapper _mapper;
@@ -30,6 +30,46 @@ namespace ECommerce.API.Controllers
             var mapAdd = _mapper.Map<ProductsDTO>(productSave);
 
             return Ok(mapAdd);
+        }
+
+        [HttpPut("Product_Update")]
+        public async Task<IActionResult> ProductUpdate(Products product)
+        {
+            var urun = await _service.GetByIdAsync(product.ID);
+            if (urun != null)
+            {
+                await _service.UpdateAsync(product);
+                return ResultAPI(product);
+            }
+            else
+            {
+                return NoContent();
+            }
+        }
+
+        [HttpDelete("Product_Delete/{id}")]
+        public async Task<IActionResult> ProductDelete(int id)
+        {
+            var product = await _service.GetByIdAsync(id);
+
+            if (product != null)
+            {
+                await _service.RemoveAsync(product);
+                return Ok();
+            }
+            else
+            {
+                return NoContent();
+            }
+        }
+
+
+        [HttpGet("ProductGetById/{id}")]
+        public async Task<IActionResult> ProductGetById(int id)
+        {
+            var product = await _service.GetByIdAsync(id);
+
+            return ResultAPI(product);
         }
     }
 }

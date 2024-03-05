@@ -51,6 +51,11 @@ namespace ECommerce.Service.Services
 
         }
 
+        public async Task<IEnumerable<TEntity>> GetAllQueryAsync(Expression<Func<TEntity, bool>> expression)
+        {
+            return await _repository.GetAllQueryAsync(expression);
+        }
+
         public async Task<TEntity> GetByIdAsync(int id)
         {
             return await _repository.GetByIdAsync(id);
